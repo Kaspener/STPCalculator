@@ -1,0 +1,2359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Calculator</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::TabShape::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Fraction">
+       <attribute name="title">
+        <string>Простые числа</string>
+       </attribute>
+       <widget class="QLineEdit" name="numberEdit">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryClear">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MC</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryReset">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MR</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryStore">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryPlus">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>M+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button7">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button8">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button9">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button4">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button5">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button6">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="backSpace">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>70</y>
+          <width>111</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>BS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clear">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button1">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button3">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonMinus">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+/-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button0">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="separator">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>\</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="currentOperation">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="mul">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>*</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sub">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="add">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="div">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="result">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="inv">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>1/x</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sqr">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Sqr</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clearElement">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>CE</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Compex">
+       <attribute name="title">
+        <string>Комплексные числа</string>
+       </attribute>
+       <widget class="QPushButton" name="memoryClear_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MC</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clearElement_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>CE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button6_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonMinus_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+/-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="result_2">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryReset_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MR</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="currentOperation_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="mul_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>*</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button1_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryStore_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clear_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sub_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="div_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="add_2">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="backSpace_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>70</y>
+          <width>111</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>BS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button0_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryPlus_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>M+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button4_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="inv_2">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>1/x</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button7_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button8_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="numberEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string> 0 + i * 0</string>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sqr_2">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Sqr</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button9_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button5_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button3_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button2_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="separator_2">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="realButton">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>400</y>
+          <width>91</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Real</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="imaginaryButton">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>400</y>
+          <width>91</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Imaginary</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="PNumber">
+       <attribute name="title">
+        <string>П-ичное число</string>
+       </attribute>
+       <widget class="QPushButton" name="div_5">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button3_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button6_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sqr_5">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Sqr</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button9_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="currentOperation_5">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>None</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button8_5">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="separator_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryReset_5">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MR</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="backSpace_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>70</y>
+          <width>111</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>BS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonMinus_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>46</red>
+              <green>47</green>
+              <blue>48</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="PlaceholderText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="128">
+              <red>170</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+/-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button4_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="mul_5">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>*</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="inv_5">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>1/x</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button5_5">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clear_5">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="result_5">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryPlus_5">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>M+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sub_5">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>190</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button0_5">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>310</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button7_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="numberEdit_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>351</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0.00</string>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryStore_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MS</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button1_5">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="clearElement_5">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>70</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>CE</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="memoryClear_5">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>MC</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="add_5">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>130</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(170, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button2_5">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>250</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonA">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>B</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonC">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonD">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>D</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonE">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>E</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buttonF">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>370</y>
+          <width>51</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>F</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>430</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>2</number>
+        </property>
+        <property name="maximum">
+         <number>16</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TickPosition::NoTicks</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>430</y>
+          <width>49</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </widget>
+       <widget class="QSlider" name="slider_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>460</y>
+          <width>231</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>2</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TickPosition::NoTicks</enum>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>460</y>
+          <width>49</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <addaction name="action"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Автор</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>numberEdit</tabstop>
+  <tabstop>memoryClear</tabstop>
+  <tabstop>memoryReset</tabstop>
+  <tabstop>memoryStore</tabstop>
+  <tabstop>memoryPlus</tabstop>
+  <tabstop>button7</tabstop>
+  <tabstop>button8</tabstop>
+  <tabstop>button9</tabstop>
+  <tabstop>button4</tabstop>
+  <tabstop>button5</tabstop>
+  <tabstop>button6</tabstop>
+  <tabstop>backSpace</tabstop>
+  <tabstop>clear</tabstop>
+  <tabstop>button1</tabstop>
+  <tabstop>button2</tabstop>
+  <tabstop>button3</tabstop>
+  <tabstop>buttonMinus</tabstop>
+  <tabstop>button0</tabstop>
+  <tabstop>separator</tabstop>
+  <tabstop>currentOperation</tabstop>
+  <tabstop>mul</tabstop>
+  <tabstop>sub</tabstop>
+  <tabstop>add</tabstop>
+  <tabstop>div</tabstop>
+  <tabstop>result</tabstop>
+  <tabstop>inv</tabstop>
+  <tabstop>sqr</tabstop>
+  <tabstop>clearElement</tabstop>
+  <tabstop>memoryClear_2</tabstop>
+  <tabstop>clearElement_2</tabstop>
+  <tabstop>button6_2</tabstop>
+  <tabstop>buttonMinus_2</tabstop>
+  <tabstop>result_2</tabstop>
+  <tabstop>memoryReset_2</tabstop>
+  <tabstop>currentOperation_2</tabstop>
+  <tabstop>mul_2</tabstop>
+  <tabstop>button1_2</tabstop>
+  <tabstop>memoryStore_2</tabstop>
+  <tabstop>clear_2</tabstop>
+  <tabstop>sub_2</tabstop>
+  <tabstop>div_2</tabstop>
+  <tabstop>add_2</tabstop>
+  <tabstop>backSpace_2</tabstop>
+  <tabstop>button0_2</tabstop>
+  <tabstop>memoryPlus_2</tabstop>
+  <tabstop>button4_2</tabstop>
+  <tabstop>inv_2</tabstop>
+  <tabstop>button7_2</tabstop>
+  <tabstop>button8_2</tabstop>
+  <tabstop>numberEdit_2</tabstop>
+  <tabstop>sqr_2</tabstop>
+  <tabstop>button9_2</tabstop>
+  <tabstop>button5_2</tabstop>
+  <tabstop>button3_2</tabstop>
+  <tabstop>button2_2</tabstop>
+  <tabstop>separator_2</tabstop>
+  <tabstop>realButton</tabstop>
+  <tabstop>imaginaryButton</tabstop>
+  <tabstop>div_5</tabstop>
+  <tabstop>button3_5</tabstop>
+  <tabstop>button6_5</tabstop>
+  <tabstop>sqr_5</tabstop>
+  <tabstop>button9_5</tabstop>
+  <tabstop>currentOperation_5</tabstop>
+  <tabstop>button8_5</tabstop>
+  <tabstop>separator_5</tabstop>
+  <tabstop>memoryReset_5</tabstop>
+  <tabstop>backSpace_5</tabstop>
+  <tabstop>buttonMinus_5</tabstop>
+  <tabstop>button4_5</tabstop>
+  <tabstop>mul_5</tabstop>
+  <tabstop>inv_5</tabstop>
+  <tabstop>button5_5</tabstop>
+  <tabstop>clear_5</tabstop>
+  <tabstop>result_5</tabstop>
+  <tabstop>memoryPlus_5</tabstop>
+  <tabstop>sub_5</tabstop>
+  <tabstop>button0_5</tabstop>
+  <tabstop>button7_5</tabstop>
+  <tabstop>numberEdit_5</tabstop>
+  <tabstop>memoryStore_5</tabstop>
+  <tabstop>button1_5</tabstop>
+  <tabstop>clearElement_5</tabstop>
+  <tabstop>memoryClear_5</tabstop>
+  <tabstop>add_5</tabstop>
+  <tabstop>button2_5</tabstop>
+  <tabstop>buttonA</tabstop>
+  <tabstop>buttonB</tabstop>
+  <tabstop>buttonC</tabstop>
+  <tabstop>buttonD</tabstop>
+  <tabstop>buttonE</tabstop>
+  <tabstop>buttonF</tabstop>
+  <tabstop>slider</tabstop>
+  <tabstop>slider_2</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
