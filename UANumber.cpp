@@ -2,6 +2,8 @@
 #include <cmath>
 #include <numeric>
 #include "Exceptions.h"
+#include <limits>
+#include <stdexcept>
 
 TANumber::~TANumber() = default;
 
@@ -54,6 +56,7 @@ TPNumber::TPNumber(const std::string& value, const std::string& base, const std:
 	m_precision = precisionInt;
 	m_number = StringToDouble(value, baseInt);
 	m_numberStringRepresentation = ConvertToBase(m_number, m_base, m_precision);
+    if (m_numberStringRepresentation == ".00") throw std::overflow_error("Overflow during addition of digit");
 }
 
 void TPNumber::setNumber(const std::string& number)
@@ -279,56 +282,68 @@ std::string TPNumber::ConvertToBase(const double& value, const int& base, int pr
 
 double TPNumber::StringToDouble(const std::string& value, const int& base) const
 {
-	double result = 0.0;
-	bool isFraction = false;
-	double fractionMultiplier = 1.0;
-	bool isNegative = (value[0] == '-');
+    double result = 0.0;
+    bool isFraction = false;
+    double fractionMultiplier = 1.0;
+    bool isNegative = (value[0] == '-');
 
-	size_t startIndex = (isNegative || value[0] == '+') ? 1 : 0;
+    size_t startIndex = (isNegative || value[0] == '+') ? 1 : 0;
 
-	for (size_t i = startIndex; i < value.size(); ++i) 
-	{
-		char ch = value[i];
+    const double maxDouble = std::numeric_limits<double>::max();
 
-		if (ch == '.') 
-		{
-			isFraction = true;
-			continue;
-		}
+    for (size_t i = startIndex; i < value.size(); ++i)
+    {
+        char ch = value[i];
 
-		char upperCh = std::toupper(ch);
+        if (ch == '.')
+        {
+            isFraction = true;
+            continue;
+        }
 
-		short digit;
-		if (upperCh >= '0' && upperCh <= '9') 
-		{
-			digit = upperCh - '0';
-		}
-		else if (upperCh >= 'A' && upperCh <= 'F') 
-		{
-			digit = upperCh - 'A' + 10;
-		}
-		else 
-		{
-			throw InvalidBaseDigitException(upperCh - 'A' + 10);
-		}
+        char upperCh = std::toupper(ch);
+
+        short digit;
+        if (upperCh >= '0' && upperCh <= '9')
+        {
+            digit = upperCh - '0';
+        }
+        else if (upperCh >= 'A' && upperCh <= 'F')
+        {
+            digit = upperCh - 'A' + 10;
+        }
+        else
+        {
+            throw InvalidBaseDigitException(upperCh - 'A' + 10);
+        }
 
         if (digit >= base)
         {
             throw InvalidBaseDigitException(digit);
         }
 
-		if (isFraction) 
-		{
-			fractionMultiplier /= base;
-			result += digit * fractionMultiplier;
-		}
-		else 
-		{
-			result = result * base + digit;
-		}
-	}
+        if (isFraction)
+        {
+            fractionMultiplier /= base;
+            result += digit * fractionMultiplier;
+        }
+        else
+        {
+            if (result > maxDouble / base)
+            {
+                throw std::overflow_error("Overflow during multiplication by base");
+            }
 
-	return isNegative ? -result : result;
+            result = result * base + digit;
+
+            if (result > maxDouble)
+            {
+                throw std::overflow_error("Overflow during addition of digit");
+            }
+        }
+    }
+
+    return isNegative ? -result : result;
 }
 
 TComplex::TComplex() : m_actual(0), m_imaginary(0)
@@ -348,28 +363,50 @@ TComplex::TComplex(const std::string& number)
 
 void TComplex::setNumber(const std::string& number)
 {
-	size_t plus_pos = number.find(" + i * ");
-	size_t minus_pos = number.find(" - i * ");
+    size_t plus_pos = number.find(" + i * ");
+    size_t minus_pos = number.find(" - i * ");
 
-	if (plus_pos == std::string::npos && minus_pos == std::string::npos) {
-		throw ComplexNumberParseException("Invalid complex number format: " + number);
-	}
+    if (plus_pos == std::string::npos && minus_pos == std::string::npos) {
+        throw ComplexNumberParseException("Invalid complex number format: " + number);
+    }
 
-	try {
-		if (plus_pos != std::string::npos) {
-			m_actual = std::stod(number.substr(0, plus_pos));
-			m_imaginary = std::stod(number.substr(plus_pos + 7));
-		}
-		else if (minus_pos != std::string::npos) {
-			m_actual = std::stod(number.substr(0, minus_pos));
-			m_imaginary = -std::stod(number.substr(minus_pos + 7));
-		}
-	}
-	catch (const std::exception&) {
-		throw ComplexNumberParseException("Error parsing the number: " + number);
-	}
+    try {
+        if (plus_pos != std::string::npos) {
+            try {
+                m_actual = std::stod(number.substr(0, plus_pos));
+            }
+            catch (const std::out_of_range&) {
+                throw std::overflow_error("Overflow occurred when parsing the real part: " + number);
+            }
 
-	updateStringRepresentation();
+            try {
+                m_imaginary = std::stod(number.substr(plus_pos + 7));
+            }
+            catch (const std::out_of_range&) {
+                throw std::overflow_error("Overflow occurred when parsing the imaginary part: " + number);
+            }
+        }
+        else if (minus_pos != std::string::npos) {
+            try {
+                m_actual = std::stod(number.substr(0, minus_pos));
+            }
+            catch (const std::out_of_range&) {
+                throw std::overflow_error("Overflow occurred when parsing the real part: " + number);
+            }
+
+            try {
+                m_imaginary = -std::stod(number.substr(minus_pos + 7));
+            }
+            catch (const std::out_of_range&) {
+                throw std::overflow_error("Overflow occurred when parsing the imaginary part: " + number);
+            }
+        }
+    }
+    catch (const std::invalid_argument&) {
+        throw ComplexNumberParseException("Error parsing the number: " + number);
+    }
+
+    updateStringRepresentation();
 }
 
 double TComplex::Modulus() const noexcept
@@ -522,28 +559,39 @@ bool TComplex::operator==(const TANumber& B) const noexcept
 
 void TComplex::updateStringRepresentation()
 {
-	std::string result;
-	if (floor(m_actual) == m_actual)
-		result = std::to_string(static_cast<int>(m_actual));
-	else
-		result = std::to_string(m_actual);
+    if (std::fabs(m_actual) > std::numeric_limits<double>::max()) {
+        throw std::overflow_error("Overflow occurred in the real part.");
+    }
 
-	if (m_imaginary >= 0) {
-		m_separator[1] = '+';
-	}
-	else {
-		m_separator[1] = '-';
-	}
-	result += m_separator;
+    if (std::fabs(m_imaginary) > std::numeric_limits<double>::max()) {
+        throw std::overflow_error("Overflow occurred in the imaginary part.");
+    }
 
-	if (floor(m_imaginary) == m_imaginary)
-		result += std::to_string(std::abs(static_cast<int>(m_imaginary)));
-	else
-		result += std::to_string(std::fabs(m_imaginary));
+    std::string result;
+    if (std::floor(m_actual) == m_actual)
+        result = std::to_string(static_cast<int>(m_actual));
 
-	m_numberStringRepresentation = result;
+    else
+        result = std::to_string(m_actual);
+
+    if (result == "-2147483648") throw std::overflow_error("Overflow occurred in the real part.");
+
+    if (m_imaginary >= 0) {
+        m_separator[1] = '+';
+    }
+    else {
+        m_separator[1] = '-';
+    }
+    result += m_separator;
+    std::string temp;
+    if (std::floor(m_imaginary) == m_imaginary)
+        temp = std::to_string(std::abs(static_cast<int>(m_imaginary)));
+    else
+        temp = std::to_string(std::fabs(m_imaginary));
+    if (temp == "-2147483648") throw std::overflow_error("Overflow occurred in the imaginary part.");
+    result += temp;
+    m_numberStringRepresentation = result;
 }
-
 TFrac::TFrac()
 {
 	m_numerator = 0;

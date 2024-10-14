@@ -1,4 +1,6 @@
 #include "UAEditor.h"
+#include <QApplication>
+#include <QClipboard>
 
 AEditor::~AEditor() = default;
 
@@ -169,6 +171,7 @@ std::string CEditor::CE()
 
 std::string CEditor::Edit(Command command)
 {
+    QClipboard *clipboard = QApplication::clipboard();
 	switch (command)
 	{
 	case AEditor::cZero:
@@ -216,6 +219,9 @@ std::string CEditor::Edit(Command command)
 	case AEditor::cCE:
 		CE();
 		break;
+    case AEditor::cPast:
+        m_number = TComplex(clipboard->text().toStdString()).numberString();
+        break;
 	default:
 		break;
 	}
@@ -321,6 +327,7 @@ std::string FEditor::CE()
 
 std::string FEditor::Edit(Command command)
 {
+    QClipboard *clipboard = QApplication::clipboard();
 	switch (command)
 	{
 	case AEditor::cZero:
@@ -364,7 +371,10 @@ std::string FEditor::Edit(Command command)
 		break;
 	case AEditor::cCE:
 		CE();
-		break;
+        break;
+    case AEditor::cPast:
+        m_number = TFrac(clipboard->text().toStdString()).numberString();
+        break;
 	default:
 		break;
 	}
@@ -475,6 +485,7 @@ std::string PEditor::CE()
 
 std::string PEditor::Edit(Command command)
 {
+    QClipboard *clipboard = QApplication::clipboard();
 	switch (command)
 	{
 	case AEditor::cZero:
@@ -537,6 +548,9 @@ std::string PEditor::Edit(Command command)
 	case AEditor::cCE:
 		CE();
 		break;
+    case AEditor::cPast:
+        m_number = TPNumber(clipboard->text().toStdString(), std::to_string(m_base), std::to_string(m_precision)).numberString();
+        break;
 	default:
 		break;
 	}

@@ -5,6 +5,7 @@
 #include "UControl.h"
 #include "UANumber.h"
 #include "UAEditor.h"
+#include <QClipboard>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -245,6 +246,8 @@ private slots:
 
     void onShortcutPast();
 
+    void onShortcutResult();
+
     void on_action_triggered();
 
 private:
@@ -253,5 +256,6 @@ private:
     TCtrl<TComplex, CEditor> complexController;
     TCtrl<TPNumber, PEditor> pnumberController;
     int prevBase = 10;
+    QClipboard *clipboard;
 };
 #endif // MAINWINDOW_H

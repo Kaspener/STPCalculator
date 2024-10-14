@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    clipboard = QApplication::clipboard();
     QShortcut *shortcutBS = new QShortcut(QKeySequence("Backspace"), ui->tabWidget);
     QShortcut *shortcut0 = new QShortcut(QKeySequence("0"), ui->tabWidget);
     QShortcut *shortcut1 = new QShortcut(QKeySequence("1"), ui->tabWidget);
@@ -32,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
     QShortcut *shortcutSub = new QShortcut(QKeySequence("-"), ui->tabWidget);
     QShortcut *shortcutMul = new QShortcut(QKeySequence("*"), ui->tabWidget);
     QShortcut *shortcutDiv = new QShortcut(QKeySequence("/"), ui->tabWidget);
+    QShortcut *shortcutResult = new QShortcut(QKeySequence("Enter"), ui->tabWidget);
+    QShortcut *shortcutResult2 = new QShortcut(QKeySequence("="), ui->tabWidget);
     QShortcut *shortcutCopy = new QShortcut(QKeySequence("Ctrl+C"), ui->tabWidget);
     QShortcut *shortcutPast = new QShortcut(QKeySequence("Ctrl+V"), ui->tabWidget);
     connect(shortcutBS, &QShortcut::activated, this, &MainWindow::onShortcutBS);
@@ -59,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(shortcutDiv, &QShortcut::activated, this, &MainWindow::onShortcutDiv);
     connect(shortcutCopy, &QShortcut::activated, this, &MainWindow::onShortcutCopy);
     connect(shortcutPast, &QShortcut::activated, this, &MainWindow::onShortcutPast);
+    connect(shortcutResult, &QShortcut::activated, this, &MainWindow::onShortcutResult);
+    connect(shortcutResult2, &QShortcut::activated, this, &MainWindow::onShortcutResult);
 }
 
 MainWindow::~MainWindow()
@@ -1299,36 +1304,75 @@ void MainWindow::onShortcutDiv()
 void MainWindow::onShortcutCopy()
 {
     int current_tab_index = ui->tabWidget->currentIndex();
+    QString text{};
 
     if (current_tab_index == 0) {
-        on_memoryStore_clicked();
+        text = ui->numberEdit->text();
     }
     else if (current_tab_index == 1){
-        on_memoryStore_2_clicked();
+        text = ui->numberEdit_2->text();
     }
     else
     {
-        on_memoryStore_5_clicked();
+        text = ui->numberEdit_5->text();
     }
+    clipboard->setText(text);
 }
 
 void MainWindow::onShortcutPast()
 {
     int current_tab_index = ui->tabWidget->currentIndex();
 
-
     if (current_tab_index == 0) {
-        if (ui->memoryReset->isEnabled())
-            on_memoryReset_clicked();
+        if (fracController.getState() == TCtrl<TFrac, FEditor>::CtrlState::cError) return;
+
+        try {
+            ui->numberEdit->setText(QString::fromStdString(fracController.executeCommandEditor(AEditor::Command::cPast)));
+        }
+        catch (const std::exception& ex) {
+            ui->numberEdit->setText(QString::fromStdString(std::string(ex.what())));
+            fracController.setState(TCtrl<TFrac, FEditor>::CtrlState::cError);
+        }
     }
     else if (current_tab_index == 1){
-        if (ui->memoryReset_2->isEnabled())
-            on_memoryReset_2_clicked();
+        if (complexController.getState() == TCtrl<TComplex, CEditor>::CtrlState::cError) return;
+
+        try {
+            ui->numberEdit_2->setText(QString::fromStdString(complexController.executeCommandEditor(AEditor::Command::cPast)));
+        }
+        catch (const std::exception& ex) {
+            ui->numberEdit_2->setText(QString::fromStdString(std::string(ex.what())));
+            complexController.setState(TCtrl<TComplex, CEditor>::CtrlState::cError);
+        }
+        ui->realButton->setChecked(true);
     }
     else
     {
-        if (ui->memoryReset_5->isEnabled())
-            on_memoryReset_5_clicked();
+        if (pnumberController.getState() == TCtrl<TPNumber, PEditor>::CtrlState::cError) return;
+
+        try {
+            ui->numberEdit_5->setText(QString::fromStdString(pnumberController.executeCommandEditor(AEditor::Command::cPast)));
+        }
+        catch (const std::exception& ex) {
+            ui->numberEdit_5->setText(QString::fromStdString(std::string(ex.what())));
+            pnumberController.setState(TCtrl<TPNumber, PEditor>::CtrlState::cError);
+        }
+    }
+}
+
+void MainWindow::onShortcutResult()
+{
+    int current_tab_index = ui->tabWidget->currentIndex();
+
+    if (current_tab_index == 0) {
+        on_result_clicked();
+    }
+    else if (current_tab_index == 1){
+        on_result_2_clicked();
+    }
+    else
+    {
+        on_result_5_clicked();
     }
 }
 

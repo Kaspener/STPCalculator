@@ -26,7 +26,8 @@ public:
 		cSeparatorFR,
 		cSeparatorC,
 		cBS,
-		cCE
+        cCE,
+        cPast
 	};
 
 	virtual ~AEditor() = 0;
